@@ -17,8 +17,9 @@ const performCalculations = async () => {
         worker.on("exit", () => {
             finished += 1;
             if (finished === length) {
-                console.log(results);
-                res(results);
+                const sorted = results.sort((a, b) => Number(a.data) - Number(b.data));
+                console.log(sorted)
+                res(sorted);
             }
         })
     }
