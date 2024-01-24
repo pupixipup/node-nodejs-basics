@@ -3,8 +3,8 @@
 ## Finished sections:
 
 - [x] File system (src/fs)
-- [ ] Command line interface(src/cli)
-- [ ] Modules(src/modules)
+- [x] Command line interface(src/cli)
+- [x] Modules(src/modules)
 - [ ] Hash (src/hash)
 - [ ] Streams (src/streams)
 - [ ] Zlib (src/zip)
