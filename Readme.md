@@ -5,7 +5,7 @@
 - [x] File system (src/fs)
 - [x] Command line interface(src/cli)
 - [x] Modules(src/modules)
-- [ ] Hash (src/hash)
+- [x] Hash (src/hash)
 - [ ] Streams (src/streams)
 - [ ] Zlib (src/zip)
 - [ ] Worker Threads (src/wt)
