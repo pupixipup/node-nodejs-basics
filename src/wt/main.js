@@ -1,15 +1,18 @@
 import os from "os"
-import { Worker, getEnvironmentData } from "worker_threads"
+import { Worker } from "worker_threads"
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const performCalculations = async () => {
     // Write your code here
     return new Promise ((res, rej) => {
+    const __dirname = dirname(fileURLToPath(import.meta.url));
     const cores = os.cpus().length;
     let results = []
     let finished = 0;
     let length = 10 + cores;
     for (let i = 0; i < length; i++) {
-        const worker = new Worker("./worker.js", { workerData: i})
+        const worker = new Worker(__dirname + "/worker.js", { workerData: i})
         worker.on('message', (result) => {
             results.push({status: 'resolve', data: result})
         });

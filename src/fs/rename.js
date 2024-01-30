@@ -1,4 +1,6 @@
 import fs from "fs/promises"
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const fileExists = async path => {
     const exists = await fs.stat(path).catch(e => null)
@@ -6,8 +8,9 @@ const fileExists = async path => {
 };
 
 const rename = async () => {
-    const from = "./files/wrongFilename.txt";
-    const to = "./files/wrongFilename.txt";
+    const __dirname = dirname(fileURLToPath(import.meta.url));
+    const from = __dirname + "/files/wrongFilename.txt";
+    const to = __dirname + "/files/properFilename.md";
     if ((await fileExists(to)) || !(await fileExists(from))) {
         throw new Error("FS operation failed")
     }
